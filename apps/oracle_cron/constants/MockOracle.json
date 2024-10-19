@@ -1,0 +1,258 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ISupraSValueFeed",
+          "name": "_sValueFeed",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "OracleClient__InvaildOp",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pair1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_pair2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "operation",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAllPricesForPair",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "token1Price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "token1Decimals",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "token2Price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "token2Decimals",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "relativePrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "relativeDecimals",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct TokenPairPriceFeed",
+          "name": "tppf",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "pair_id_1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "pair_id_2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "operation",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDerivedValueOfPair",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "decimals",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_priceIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "decimals",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getSupraSvalueFeed",
+      "outputs": [
+        {
+          "internalType": "contract ISupraSValueFeed",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "pairIndexs1",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "pairIndexs2",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "prices",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "updateDerivedPricePairValues",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "pairs",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "prices",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "updatePricePairValues",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ISupraSValueFeed",
+          "name": "_newSValueFeed",
+          "type": "address"
+        }
+      ],
+      "name": "updateSupraSvalueFeed",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}

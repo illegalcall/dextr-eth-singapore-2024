@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+/contracts/lib/*
+/contracts/cache/*
+/contracts/cache
+/contracts/cache/
+
+/contracts/out
+.DS_Store

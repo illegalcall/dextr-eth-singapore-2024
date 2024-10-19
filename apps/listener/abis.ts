@@ -1,0 +1,286 @@
+export const orderBookAbi = [
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_lpManager",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_oracleClient",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getOrderById",
+    "inputs": [
+      {
+        "name": "_orderId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct Order",
+        "components": [
+          {
+            "name": "orderId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "lpId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "amountIn",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "amountOut",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "inPrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "traderAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "inToken",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "outToken",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "isFulfilled",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getPairId",
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "matchOrder",
+    "inputs": [
+      {
+        "name": "_orderId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_lpId",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_amountOut",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_tradingToken",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "placeLimitOrder",
+    "inputs": [
+      {
+        "name": "_inToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_outToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      },
+      {
+        "name": "_price",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "placeMarketOrder",
+    "inputs": [
+      {
+        "name": "_inToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_outToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "priceIndex",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "totalOrders",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "event",
+    "name": "Orderbook__OrderMatched",
+    "inputs": [
+      {
+        "name": "orderId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "matchedLpId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Orderbook__OrderPlaced",
+    "inputs": [
+      {
+        "name": "orderId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "amountIn",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "inPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "traderAddress",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "inToken",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "outToken",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "Orderbook__InvalidMatching",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "Orderbook__TokenTransferFailed",
+    "inputs": []
+  }
+]

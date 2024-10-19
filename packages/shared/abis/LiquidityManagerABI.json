@@ -1,0 +1,308 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "_supportedTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      { "name": "_pairIds", "type": "uint256[]", "internalType": "uint256[]" }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "createLiquidityPosition",
+    "inputs": [
+      {
+        "name": "_primaryToken",
+        "type": "address",
+        "internalType": "address"
+      },
+      { "name": "_minPrice", "type": "uint256", "internalType": "uint256" },
+      { "name": "_maxPrice", "type": "uint256", "internalType": "uint256" },
+      { "name": "_amount", "type": "uint256", "internalType": "uint256" },
+      {
+        "name": "_tradingTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      {
+        "name": "_tradingMinTokens",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "_tradingMaxTokens",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getLiquidityPosition",
+    "inputs": [
+      { "name": "_lpId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct LiquidityGroup",
+        "components": [
+          { "name": "lpId", "type": "uint256", "internalType": "uint256" },
+          {
+            "name": "lpAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "primaryToken",
+            "type": "tuple",
+            "internalType": "struct LiquidityToken",
+            "components": [
+              {
+                "name": "lpId",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+              },
+              {
+                "name": "minPrice",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "maxPrice",
+                "type": "uint256",
+                "internalType": "uint256"
+              },
+              {
+                "name": "availableBalance",
+                "type": "uint256",
+                "internalType": "uint256"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getTokenPairId",
+    "inputs": [
+      { "name": "_token", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getTradingToken",
+    "inputs": [
+      { "name": "_lpId", "type": "uint256", "internalType": "uint256" },
+      { "name": "_token", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct LiquidityToken",
+        "components": [
+          { "name": "lpId", "type": "uint256", "internalType": "uint256" },
+          { "name": "token", "type": "address", "internalType": "address" },
+          {
+            "name": "minPrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "maxPrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "availableBalance",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "isTokenSupported",
+    "inputs": [
+      {
+        "name": "_tokenAddress",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "removeLiquidityPosition",
+    "inputs": [
+      { "name": "_lpId", "type": "uint256", "internalType": "uint256" },
+      {
+        "name": "_tradingTokens",
+        "type": "address[]",
+        "internalType": "address[]"
+      },
+      { "name": "_recipient", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "totalLP",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "updateLiquidityPosition",
+    "inputs": [
+      { "name": "_lpId", "type": "uint256", "internalType": "uint256" },
+      { "name": "_amount", "type": "uint256", "internalType": "uint256" },
+      { "name": "_deduct", "type": "bool", "internalType": "bool" },
+      { "name": "_isPrimary", "type": "bool", "internalType": "bool" },
+      {
+        "name": "_tradingToken",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "TokenVault__LiquidityPositionCreated",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "lpId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "primaryToken",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "minPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "maxPrice",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "tradingTokens",
+        "type": "address[]",
+        "indexed": false,
+        "internalType": "address[]"
+      },
+      {
+        "name": "tradingMinTokens",
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "tradingMaxTokens",
+        "type": "uint256[]",
+        "indexed": false,
+        "internalType": "uint256[]"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "TokenVault__LiquidityPositionRemoved",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "lpId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "TokenVault__LiquidityPositionUpdated",
+    "inputs": [
+      {
+        "name": "user",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "lpId",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "token",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "amount",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  { "type": "error", "name": "TokenVault__TokenTransferFailed", "inputs": [] }
+]
